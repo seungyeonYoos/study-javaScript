@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <div>
+  <div class="light">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -89,11 +89,23 @@
         location.href = 'success';
       }
     });
-
+    var count = 0;
     document.getElementsByClassName('badge')[0].addEventListener('click',function(){
-        var 나이 = 20;
-        
+      count++;
+      console.log(count);
+      if (count%2 == 1){
+        $('.badge').html('Light 🔄');
+      } else {
+        $('.badge').html('Dark 🔄');
+      }
     });
+    test(360);
+    function test (a){
+      var 처음주문한커피 = a;
+      var 첫리필 = a*2/3;
+      var 두번째리필 = 첫리필*2/3;
+      console.log(처음주문한커피 + 첫리필 + 두번째리필);
+    }
 
     // game369(23);
 
