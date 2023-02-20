@@ -12,6 +12,9 @@ const port = 8000;
 app.get("/", (req, res) => {
   res.render("root");
 });
+app.get("/success", (req, res) => {
+  res.render("success");
+});
 
 app.listen(port, () => {
   console.log("Server open: ", port);
