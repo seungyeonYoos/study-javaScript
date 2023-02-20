@@ -58,6 +58,20 @@
       <h3>hello espresso</h3>
       <button id="login">로그인</button>
     </div>
+    <div class="alert alert-danger">
+      5초 이내 구매시 사은품 증정!
+    </div>
+    <div class="slide-container">
+      <div class="slide-box">
+        <img>
+      </div>
+      <div class="slide-box">
+        <img>
+      </div>
+      <div class="slide-box">
+        <img>
+      </div>
+    </div>
     
   </div>
 
@@ -81,11 +95,14 @@
       let input1 = document.getElementsByClassName('form-control')[0].value;
       let input2 = document.getElementsByClassName('form-control')[1].value;
       if (input1 == '' || input2 == '') {
-        alert('다시해라');
+        alert('공백은 안됩니다');
       } else if (input1.length < 6 || input2.length < 6) {
-        alert('글자 6자 이상으로 해라');
-      }
-      else {
+        alert('글자 6자 이상으로 해야합니다');
+      } else if (/\S+@\S+\.\S+/.test(input1) == false){
+        alert('이메일형식을 지켜주세요');
+      } else if (/A-Z/.test(input2) == false){
+        alert('비밀번호에 대문자를 포함해야합니다');
+      } else {
         location.href = 'success';
       }
     });
@@ -99,14 +116,29 @@
         $('.badge').html('Dark 🔄');
       }
     });
-    test(360);
-    function test (a){
-      var 처음주문한커피 = a;
-      var 첫리필 = a*2/3;
-      var 두번째리필 = 첫리필*2/3;
-      console.log(처음주문한커피 + 첫리필 + 두번째리필);
+    var a = 5;
+    function msEvent(){
+      a=a-1;
+      $('.alert').html(`${a}초 이내 구매시 사은품 증정 !`);
     }
+    setInterval(msEvent, 1000);
+    setTimeout(function(){
+      $('.alert').hide();
+    }, 5000);
 
+    // test(30);
+    // function test (a){
+    //   var service = (a%100)/10;
+    //   var b = Math.floor(service);
+    //   console.log(b);
+    // }
+    // test(15);
+    // function test (a){
+    //   var 처음주문한커피 = a;
+    //   var 첫리필 = a*2/3;
+    //   var 두번째리필 = 첫리필*2/3;
+    //   console.log(처음주문한커피 + 첫리필 + 두번째리필);
+    // }
     // game369(23);
 
     // function game369 (a){
