@@ -33,7 +33,8 @@
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -61,18 +62,26 @@
     <div class="alert alert-danger">
       5초 이내 구매시 사은품 증정!
     </div>
-    <div class="slide-container">
-      <div class="slide-box">
-        <img>
+    <div style="overflow: hidden;">
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="../static/img/car1.png">
+        </div>
+        <div class="slide-box">
+          <img src="../static/img/car2.png">
+        </div>
+        <div class="slide-box">
+          <img src="../static/img/car3.png">
+        </div>
       </div>
-      <div class="slide-box">
-        <img>
-      </div>
-      <div class="slide-box">
-        <img>
-      </div>
+      <button class="prev">이전</button>
+      <button class="next">다음</button>
     </div>
-    
+    <button class="one">1</button>
+    <button class="two">2</button>
+    <button class="three">3</button>
+
+
   </div>
 
   <!-- 부트스트랩, 제이쿼리 라이브러리 -->
@@ -82,6 +91,15 @@
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
   <script>
+    document.getElementsByClassName('one')[0].addEventListener('click', function () {
+      $('.slide-container').css('transform', 'translateX(0vw)');
+    });
+    document.getElementsByClassName('two')[0].addEventListener('click', function () {
+      $('.slide-container').css('transform', 'translateX(-100vw)');
+    });
+    document.getElementsByClassName('three')[0].addEventListener('click', function () {
+      $('.slide-container').css('transform', 'translateX(-200vw)');
+    });
 
     document.getElementById('login').addEventListener('click', function () {
       document.getElementsByClassName('black-bg')[0].classList.add('show-madal');
@@ -98,31 +116,31 @@
         alert('공백은 안됩니다');
       } else if (input1.length < 6 || input2.length < 6) {
         alert('글자 6자 이상으로 해야합니다');
-      } else if (/\S+@\S+\.\S+/.test(input1) == false){
+      } else if (/\S+@\S+\.\S+/.test(input1) == false) {
         alert('이메일형식을 지켜주세요');
-      } else if (/A-Z/.test(input2) == false){
+      } else if (/A-Z/.test(input2) == false) {
         alert('비밀번호에 대문자를 포함해야합니다');
       } else {
         location.href = 'success';
       }
     });
     var count = 0;
-    document.getElementsByClassName('badge')[0].addEventListener('click',function(){
+    document.getElementsByClassName('badge')[0].addEventListener('click', function () {
       count++;
       console.log(count);
-      if (count%2 == 1){
+      if (count % 2 == 1) {
         $('.badge').html('Light 🔄');
       } else {
         $('.badge').html('Dark 🔄');
       }
     });
     var a = 5;
-    function msEvent(){
-      a=a-1;
+    function msEvent() {
+      a = a - 1;
       $('.alert').html(`${a}초 이내 구매시 사은품 증정 !`);
     }
     setInterval(msEvent, 1000);
-    setTimeout(function(){
+    setTimeout(function () {
       $('.alert').hide();
     }, 5000);
 

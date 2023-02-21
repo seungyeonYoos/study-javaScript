@@ -34,3 +34,19 @@
   .dark div {
     color: white;
   }
+
+  /* 캐러셀 만들기 */
+  .slide-container {
+    width: 300vw;
+    transition: all 1s;
+  }
+  .slide-box {
+    width: 100vw;
+    float: left;
+  }
+  .slide-box img {
+    width: 100%;
+  }
+  /* 캐러셀 이전 다음 버튼 */
+  .prev , .next {
+  }
