@@ -101,6 +101,18 @@
       $('.slide-container').css('transform', 'translateX(-200vw)');
     });
 
+    var status = document.getElementsByClassName('slide-container')[0].style.transform;
+    console.log(status);
+
+    document.getElementsByClassName('prev')[0].addEventListener('click', function () {
+      if (status == "(translateX(0vw))"){
+        console.log('hi');
+      }
+    });
+    document.getElementsByClassName('next')[0].addEventListener('click', function () {
+      $('.slide-container').css('transform', 'translateX(0vw)');
+    });
+
     document.getElementById('login').addEventListener('click', function () {
       document.getElementsByClassName('black-bg')[0].classList.add('show-madal');
     });
