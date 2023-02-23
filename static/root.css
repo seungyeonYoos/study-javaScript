@@ -47,4 +47,12 @@
   .slide-box img {
     width: 100%;
   }
-  /* 캐러셀 이전 다음 버튼 */
+  /* 네브바 */
+  .navbar {
+    position: fixed !important;
+    width: 100%;
+    z-index: 5;
+  }
+  .navbar-brand {
+    font-size: 30px !important;
+  }
