@@ -56,3 +56,9 @@
   .navbar-brand {
     font-size: 30px !important;
   }
+  /* 이용약관 */
+  .terms {
+    width: 400px;
+    height: 100px;
+    overflow-y: scroll;
+  }
