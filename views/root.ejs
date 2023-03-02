@@ -147,7 +147,6 @@
         지금사진 = 1;
       }
     });
-
     const aaa = document.getElementsByClassName('terms')[0];
     $(aaa).on('scroll', function () {
       const bbb = $(aaa).scrollTop();
@@ -163,6 +162,9 @@
     });
 
     document.getElementById('close').addEventListener('click', function () {
+      document.getElementsByClassName('black-bg')[0].classList.remove('show-madal');
+    });
+    document.getElementsByClassName('black-bg')[0].addEventListener('click',function(){
       document.getElementsByClassName('black-bg')[0].classList.remove('show-madal');
     });
 
