@@ -164,8 +164,13 @@
     document.getElementById('close').addEventListener('click', function () {
       document.getElementsByClassName('black-bg')[0].classList.remove('show-madal');
     });
-    document.getElementsByClassName('black-bg')[0].addEventListener('click',function(){
-      document.getElementsByClassName('black-bg')[0].classList.remove('show-madal');
+    document.getElementsByClassName('black-bg')[0].addEventListener('click',function(e){
+  
+      var 내가누른거 = e.target;
+
+      if(내가누른거 == document.querySelector('.black-bg')){
+        document.getElementsByClassName('black-bg')[0].classList.remove('show-madal');
+      }
     });
 
     document.getElementById('submit').addEventListener('click', function () {
