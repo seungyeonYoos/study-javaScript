@@ -32,7 +32,16 @@ function 탭열기 (aa){
 }
 
 $('.list').on('click',function(e){
-    if(e.target == document.getElementsByClassName('tab-button')[0]){
-        탭열기(aa);
-    }
+    탭열기(e.target.dataset.id);
 });
+
+var car = ['소나타', 50000, 'white'];
+console.log(car[0]);
+car[0] = '아반떼';
+
+var car2 = {name : '소나타', price : [5000, 3000, 4000]};
+console.log(car2['name']);
+console.log(car2.name);
+
+document.getElementsByClassName('aaa')[0].innerHTML = car2.name;
+document.getElementsByClassName('bbb')[0].innerHTML = car2['price'][0];
