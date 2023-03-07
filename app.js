@@ -10,7 +10,7 @@ const port = 8000;
 // 전역으로 사용할 변수
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("list");
 });
 app.get("/success", (req, res) => {
   res.render("success");
