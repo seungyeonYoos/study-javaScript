@@ -45,21 +45,11 @@
 
     <form class="container my-5 form-group">
         <p>상품선택</p>
-        <select class="form-select mt-2 aaa" onchange="chageLangSelect()">
+        <select class="form-select mt-2 aaa">
             <option>모자</option>
             <option>셔츠</option>
+            <option>바지</option>
         </select>
-        <div class="size-box d-none">
-            <p>사이즈선택</p>
-            <select class="form-select mt-2">
-                <option>95</option>
-                <option>100</option>
-                <option>105</option>
-            </select>
-        </div>
-
-
-
     </form>
 
     <!-- 부트스트랩, 제이쿼리 라이브러리 -->
@@ -79,15 +69,36 @@
             document.querySelectorAll('.card-body p')[i].innerHTML = '가격 : ' + products[i].price;
         };
 
-        function chageLangSelect() {
-
-            var selectValue = document.getElementsByClassName('aaa')[0].value;
+        $('.aaa').on('input', function (e) {
+            var selectValue = e.currentTarget.value;
+            var shirt = `<div class="size-box">
+            <p>사이즈선택</p>
+            <select class="form-select mt-2">
+                <option>95</option>
+                <option>100</option>
+                <option>105</option>
+            </select>
+        </div>`;
+            var pants = `<div class="size-box">
+            <p>사이즈선택</p>
+            <select class="form-select mt-2">
+                <option>28</option>
+                <option>30</option>
+                <option>32</option>
+            </select>
+        </div>`;
             if (selectValue == '셔츠') {
-                $('.size-box').removeClass('d-none');
-            } else {
+                $('.size-box').addClass('d-none');
+                document.querySelector('.form-group').insertAdjacentHTML('beforeend', shirt);
+            } else if (selectValue == '바지') {
+                $('.size-box').addClass('d-none');
+                console.log('바지');
+                document.querySelector('.form-group').insertAdjacentHTML('beforeend', pants);
+            }
+            else {
                 $('.size-box').addClass('d-none');
             }
-        }
+        })
 
     </script>
 </body>
