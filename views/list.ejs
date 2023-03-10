@@ -43,6 +43,25 @@
         </div>
     </div>
 
+    <form class="container my-5 form-group">
+        <p>상품선택</p>
+        <select class="form-select mt-2 aaa" onchange="chageLangSelect()">
+            <option>모자</option>
+            <option>셔츠</option>
+        </select>
+        <div class="size-box d-none">
+            <p>사이즈선택</p>
+            <select class="form-select mt-2">
+                <option>95</option>
+                <option>100</option>
+                <option>105</option>
+            </select>
+        </div>
+
+
+
+    </form>
+
     <!-- 부트스트랩, 제이쿼리 라이브러리 -->
 
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -55,17 +74,20 @@
             { id: 2, price: 60000, title: 'Black Monastery' }
         ];
 
+        for (i = 0; i < 3; i++) {
+            document.querySelectorAll('.card-body h5')[i].innerHTML = products[i].title;
+            document.querySelectorAll('.card-body p')[i].innerHTML = '가격 : ' + products[i].price;
+        };
 
-        var cardBody1 = document.querySelector('.card-body h5')[0];
-        var cardBody2 = document.querySelector('.card-body h5')[1];
-        var cardBody3 = document.querySelector('.card-body h5')[2];
-        $(cardBody1).text(products[0].title);
-        $(cardBody2).text(products[1].title);
-        $(cardBody3).text(products[2].title);
-        $(cardBody1).children().eq(1).text(`가격 : ` + products[0].price);
-        $(cardBody2).children().eq(1).text(`가격 : ` + products[1].price);
-        $(cardBody3).children().eq(1).text(`가격 : ` + products[2].price);
-        
+        function chageLangSelect() {
+
+            var selectValue = document.getElementsByClassName('aaa')[0].value;
+            if (selectValue == '셔츠') {
+                $('.size-box').removeClass('d-none');
+            } else {
+                $('.size-box').addClass('d-none');
+            }
+        }
 
     </script>
 </body>
