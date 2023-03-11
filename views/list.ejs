@@ -51,12 +51,10 @@
             <option>바지</option>
         </select>
     </form>
-    <div class="size-box">
+    <div class="size-box d-none">
         <p>사이즈선택</p>
         <select class="form-select mt-2">
-            <option>95</option>
-            <option>100</option>
-            <option>105</option>
+            
         </select>
     </div>
 
@@ -78,24 +76,40 @@
         };
 
         var pants = [28, 30, 32, 34];
+        var shirts = [95,100,105];
 
         $('.aaa').on('input', function (e) {
             var selectValue = e.currentTarget.value;
             if (selectValue == '셔츠') {
                 $('.size-box').removeClass('d-none');
-            } else if (selectValue == '바지') {
                 $('.form-select').eq(1).html('');
-                for (i = 0; i < pants.length; i++) {
-                    var aa = `<option>${pants[i]}</option>`
-                    $('.form-select').eq(1).append(aa);
-                }
-                console.log(pants);
+                shirts.forEach(function(a){
+                    $('.form-select').eq(1).append(`<option>${a}</option>`);
+                });
+            } else if (selectValue == '바지') {
+                $('.size-box').removeClass('d-none');
+                $('.form-select').eq(1).html('');
+                // for (i = 0; i < pants.length; i++) {
+                //     var aa = `<option>${pants[i]}</option>`
+                //     $('.form-select').eq(1).append(aa);
+                // }
+                pants.forEach(function(a){
+                    $('.form-select').eq(1).append(`<option>${a}</option>`);
+                });
 
             }
             else {
                 $('.size-box').addClass('d-none');
             }
         })
+
+        var aa = ['승연','형석','주희','흥민'];
+        function 이름찾기(a){
+            if( aa.includes(a)){
+                console.log('있음');
+            }
+        }
+        이름찾기('행숙');
 
     </script>
 </body>
