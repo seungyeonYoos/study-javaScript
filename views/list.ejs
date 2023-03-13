@@ -15,48 +15,22 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
 
-    <div class="card-group container">
-        <div class="card">
-            <img src="https://via.placeholder.com/600">
-            <div class="card-body">
+            <!-- <div class="col-sm-4">
+                <img src="https://via.placeholder.com/600" class="w-100">
                 <h5>Card title</h5>
                 <p>가격 : 70000</p>
-                <button class="btn btn-danger">주문하기</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/600">
-            <div class="card-body">
-                <h5>Card title</h5>
-                <p>가격 : 70000</p>
-                <button class="btn btn-danger">주문하기</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/600">
-            <div class="card-body">
-                <h5>Card title</h5>
-                <p>가격 : 70000</p>
-                <button class="btn btn-danger">주문하기</button>
-            </div>
+            </div> -->
+
         </div>
     </div>
-
-    <form class="container my-5 form-group">
-        <p>상품선택</p>
-        <select class="form-select mt-2 aaa">
-            <option>모자</option>
-            <option>셔츠</option>
-            <option>바지</option>
-        </select>
-    </form>
-    <div class="size-box d-none">
-        <p>사이즈선택</p>
-        <select class="form-select mt-2">
-            
-        </select>
+    <div class="container">
+        <button class="btn btn-danger btn-more">더보기</button>
     </div>
+
+
 
     <!-- 부트스트랩, 제이쿼리 라이브러리 -->
 
@@ -70,46 +44,44 @@
             { id: 2, price: 60000, title: 'Black Monastery' }
         ];
 
-        for (i = 0; i < 3; i++) {
-            document.querySelectorAll('.card-body h5')[i].innerHTML = products[i].title;
-            document.querySelectorAll('.card-body p')[i].innerHTML = '가격 : ' + products[i].price;
-        };
-
-        var pants = [28, 30, 32, 34];
-        var shirts = [95,100,105];
-
-        $('.aaa').on('input', function (e) {
-            var selectValue = e.currentTarget.value;
-            if (selectValue == '셔츠') {
-                $('.size-box').removeClass('d-none');
-                $('.form-select').eq(1).html('');
-                shirts.forEach(function(a){
-                    $('.form-select').eq(1).append(`<option>${a}</option>`);
+        products.forEach(function (a, i) {
+            var contents = `<div class="col-sm-4">
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${a.title}</h5>
+                <p>가격 : ${a.price}</p>
+            </div>`;
+            $('.row').append(contents);
+        });
+        var count = 0;
+        $('.btn-more').on('click', function () {
+            count ++;
+            if(count == 1){
+                $.get('https://codingapple1.github.io/js/more1.json')
+                .done(function (data) {
+                    data.forEach(function (a, i) {
+                        var contents = `<div class="col-sm-4">
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${a.title}</h5>
+                <p>가격 : ${a.price}</p>
+                </div>`;
+                        $('.row').append(contents);
+                    });
                 });
-            } else if (selectValue == '바지') {
-                $('.size-box').removeClass('d-none');
-                $('.form-select').eq(1).html('');
-                // for (i = 0; i < pants.length; i++) {
-                //     var aa = `<option>${pants[i]}</option>`
-                //     $('.form-select').eq(1).append(aa);
-                // }
-                pants.forEach(function(a){
-                    $('.form-select').eq(1).append(`<option>${a}</option>`);
+            }else if(count == 2){
+                $.get('https://codingapple1.github.io/js/more2.json')
+                .done(function (data) {
+                    data.forEach(function (a, i) {
+                        var contents = `<div class="col-sm-4">
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${a.title}</h5>
+                <p>가격 : ${a.price}</p>
+                </div>`;
+                        $('.row').append(contents);
+                    });
                 });
+            }
+        });
 
-            }
-            else {
-                $('.size-box').addClass('d-none');
-            }
-        })
-
-        var aa = ['승연','형석','주희','흥민'];
-        function 이름찾기(a){
-            if( aa.includes(a)){
-                console.log('있음');
-            }
-        }
-        이름찾기('행숙');
 
 
     </script>
