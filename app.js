@@ -15,6 +15,9 @@ app.get("/", (req, res) => {
 app.get("/success", (req, res) => {
   res.render("success");
 });
+app.get("/cart", (req, res) => {
+  res.render("cart");
+});
 
 app.listen(port, () => {
   console.log("Server open: ", port);
