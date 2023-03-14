@@ -157,23 +157,14 @@
         console.log(to2);
 
         $('.buy').click(function (e) {
-            var productTitle = [$(e.target).prevAll('.title').text()];
-            var newProduct = JSON.stringify(productTitle);
-            var cart = localStorage.getItem('cart');
-            if(cart !== null){
-                
+            var productTitle = $(e.target).prevAll('.title').text();
+            if(localStorage.getItem('cart') !== null){
+                var getTitle = JSON.parse(localStorage.cart); // 밸류값 어레이형태로 다시 꺼내기
+                getTitle.push(productTitle);
+                localStorage.removeItem('cart');
+                localStorage.setItem('cart', JSON.stringify(getTitle));
             } else {
-                localStorage.setItem('cart', newProduct);
-            }
-
-            if( cart == null){
-                localStorage.setItem('cart', newProduct);
-            } else {
-                var getTitle = localStorage.getItem('cart'); // 카트의 데이터의 밸류값 가져오기
-                var getTitleName = JSON.parse(getTitle); // 밸류값 어레이형태로 다시 꺼내기
-                var newArray = [getTitleName[0],productTitle[0]];
-                var product1 = JSON.stringify(newArray);
-                console.log(product1);
+                localStorage.setItem('cart', JSON.stringify([productTitle]));
             }
         });
 

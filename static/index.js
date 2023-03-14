@@ -43,5 +43,5 @@ var car2 = {name : '소나타', price : [5000, 3000, 4000]};
 console.log(car2['name']);
 console.log(car2.name);
 
-document.getElementsByClassName('aaa')[0].innerHTML = car2.name;
-document.getElementsByClassName('bbb')[0].innerHTML = car2['price'][0];
+// document.getElementsByClassName('aaa')[0].innerHTML = car2.name;
+// document.getElementsByClassName('bbb')[0].innerHTML = car2['price'][0];

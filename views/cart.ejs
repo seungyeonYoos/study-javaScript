@@ -28,8 +28,12 @@
   <script> 
     var aa = localStorage.getItem('cart');
     var 꺼내기 = JSON.parse(aa);
-    var bb = `<div>${꺼내기[0]}</div>`
-    $('.cart').append(bb);
+    console.log(꺼내기);
+    꺼내기.forEach(function(a,i){
+        var bb = `<div>${꺼내기[i]}</div>`
+        $('.cart').append(bb);
+    });
+    
 
   </script>
 </body>
