@@ -18,6 +18,9 @@ app.get("/success", (req, res) => {
 app.get("/cart", (req, res) => {
   res.render("cart");
 });
+app.get("/scroll", (req, res) => {
+  res.render("scroll");
+});
 
 app.listen(port, () => {
   console.log("Server open: ", port);
